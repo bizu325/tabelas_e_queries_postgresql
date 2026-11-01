@@ -1,2 +1,5 @@
 # tabelas_e_querys_postgreSQL
-Projeto de análise de dados de uma empresa de logística usando o PostgreSQL. Modelagem de tabelas, importação do CSV(do Kaggle)  e querys SQL para gerar insights. Projeto de portifólio
+Projeto de análise de dados de operações logisticas usando o PostgreSQL. Modelagem de tabelas, importação do CSV(do Kaggle)  e querys SQL para gerar insights. Projeto de portifólio
+O CSV do conjunto de dados foi encontrado no kaggle(https://www.kaggle.com/datasets/yogape/logistics-operations-database), com o nome de operações logísticas, nele há dados de rotas, motoristas, acidentes, etc.
+Os objetivos das querys foram nos trazer informação sobre a quantidade de cada tipo de acidente, a mediana da idade de experiência dos motoristas, quantificar o valor gasto em acidentes que poderiam ser evitávies o que significa que o valor desses prejuízos poderiam ir para os lucros da empresa e não para os débitos dela. Com a quarta query, observamos que uma parte considerável dos acidentes ocorreu com motoristas que tinham tempo de experiência superior a mediana.
+Na aquinta query, quantificamos a quantidade de vezes que um mesmo tipo de acidente acontece  e a soma de seu custos, já na sexta quantificamos quantos acidentes do mesmo tipo acontecem e qual a mediana de idade para cada. 

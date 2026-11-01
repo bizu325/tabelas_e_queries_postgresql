@@ -1,5 +1,56 @@
-# tabelas_e_querys_postgreSQL
-Projeto de análise de dados de operações logisticas usando o PostgreSQL. Modelagem de tabelas, importação do CSV(do Kaggle)  e querys SQL para gerar insights. Projeto de portifólio
-O CSV do conjunto de dados foi encontrado no kaggle(https://www.kaggle.com/datasets/yogape/logistics-operations-database), com o nome de operações logísticas, nele há dados de rotas, motoristas, acidentes, etc.
-Os objetivos das querys foram nos trazer informação sobre a quantidade de cada tipo de acidente, a mediana da idade de experiência dos motoristas, quantificar o valor gasto em acidentes que poderiam ser evitávies o que significa que o valor desses prejuízos poderiam ir para os lucros da empresa e não para os débitos dela. Com a quarta query, observamos que uma parte considerável dos acidentes ocorreu com motoristas que tinham tempo de experiência superior a mediana.
-Na aquinta query, quantificamos a quantidade de vezes que um mesmo tipo de acidente acontece  e a soma de seu custos, já na sexta quantificamos quantos acidentes do mesmo tipo acontecem e qual a mediana de idade para cada. 
+# Análise de Operações Logísticas com PostgreSQL
+
+## Sobre o projeto
+Projeto de análise de dados de operações logísticas usando PostgreSQL:
+modelagem de tabelas, importação de CSV (Kaggle) e queries SQL para
+gerar insights. Projeto de portfólio.
+
+## Fonte dos dados
+Dataset: **Logistics Operations Database** (Kaggle) — (https://www.kaggle.com/datasets/yogape/logistics-operations-database)
+Contém dados de rotas, motoristas, acidentes, entre outros.
+Importação:Após baixar os dados do Kaggle, importei eles para as tabelas do pgadmin usando o comando:  .
+COPY nome_tabela
+FROM "caminho/arquivo.csv"
+WITH (FORMAT csv, HEADER true, DELIMITER ',');
+
+## Modelagem das tabelas
+Para este projeto, utilizei as seguintes tabelas e colunas:
+| Tabela | Colunas utilizadas | Descrição |
+|---|---|---|
+| safety_incidents | description,vehicle_damage_cost,preventable_flag | Dados sobre os acidente|
+| drivers | driver_id, experience_years | Motoristas e tempo de experiência |
+
+O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas que não foram necessárias neste projeto.
+
+## Análises
+
+### Query 1 — Quantidade por tipo de acidente
+[SQL + resultado + conclusão com número]
+
+### Query 2 — Mediana de experiência dos motoristas
+Justificativa: usei mediana em vez de média porque a distribuição de
+experiência é assimétrica (de 3 a 20+ anos) e a média seria distorcida
+por valores extremos. Mediana = 13,5 anos.
+
+### Query 3 — Custo de acidentes evitáveis
+...
+
+### Query 4 — Acidentes com motoristas acima da mediana de experiência
+Resultado: X% dos acidentes envolveram motoristas com mais de 13,5 anos
+de experiência — sugerindo que experiência sozinha não é fator protetor.
+
+### Query 5 — Frequência e custo total por tipo de acidente
+Objetivo: priorizar tipos de acidente com maior impacto financeiro.
+
+### Query 6 — Frequência e mediana de idade por tipo de acidente
+Objetivo: identificar se algum tipo está associado a faixas etárias
+específicas.
+
+## Extração dos resultados
+Os resultados foram exportados do psql com:
+\copy (SELECT ...) TO 'caminho/arquivo.csv' DELIMITER ',' CSV HEADER;
+
+## Conclusão
+[1–2 frases de síntese]
+
+ 

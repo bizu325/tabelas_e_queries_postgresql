@@ -6,9 +6,9 @@ modelagem de tabelas, importação de CSV (Kaggle) e queries SQL para
 gerar insights. Projeto de portfólio.
 
 ## Fonte dos dados
-Dataset: **Logistics Operations Database** (Kaggle) — (https://www.kaggle.com/datasets/yogape/logistics-operations-database)
-Contém dados de rotas, motoristas, acidentes, entre outros.
-Importação:Após baixar os dados do Kaggle, importei eles para as tabelas do pgadmin usando o comando:  .
+Dataset: **Logistics Operations Database** (Kaggle) — (https://www.kaggle.com/datasets/yogape/logistics-operations-database)  
+Contém dados de rotas, motoristas, acidentes, entre outros.  
+Importação:Após baixar os dados do Kaggle, importei eles para as tabelas do pgadmin usando o comando:  
 COPY nome_tabela
 FROM "caminho/arquivo.csv"
 WITH (FORMAT csv, HEADER true, DELIMITER ',');
@@ -17,7 +17,7 @@ WITH (FORMAT csv, HEADER true, DELIMITER ',');
 Para este projeto, utilizei as seguintes tabelas e colunas:
 | Tabela | Colunas utilizadas | Descrição |
 |---|---|---|
-| safety_incidents | description,vehicle_damage_cost,preventable_flag | Dados sobre os acidente|
+| safety_incidents | description, vehicle_damage_cost, preventable_flag | Dados sobre os acidente|
 | drivers | driver_id, experience_years | Motoristas e tempo de experiência |
 
 O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas que não foram necessárias neste projeto.
@@ -25,12 +25,10 @@ O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas qu
 ## Análises
 
 ### Query 1 — Quantidade por tipo de acidente
-[SQL + resultado + conclusão com número]
+Nesta query o objetivo era quantificar os tipos de acidentes e quantas vezes cada um tinha ocorrido. No total haviam 12 tipos de acidentes, destes os três com maior número de ocorrência foram: incidente moderado envolvendo o clima, incidente moderado envolvendo o trânsito e incidente grave envolvendo o clima. Os três somam 54 acidentes, eles são responsáveis por quase um terço(31,76%) do número total de acidentes 170.
 
 ### Query 2 — Mediana de experiência dos motoristas
-Justificativa: usei mediana em vez de média porque a distribuição de
-experiência é assimétrica (de 3 a 20+ anos) e a média seria distorcida
-por valores extremos. Mediana = 13,5 anos.
+Justificativa: usei mediana em vez de média porque a distribuição de experiência é assimétrica (de 3 a 20+ anos) e a média seria distorcida por valores extremos. Mediana = 13,5 anos.
 
 ### Query 3 — Custo de acidentes evitáveis
 ...

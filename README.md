@@ -31,13 +31,13 @@ Nesta query o objetivo era quantificar os tipos de acidentes e quantas vezes cad
 Justificativa: usei a mediana em vez de média porque a distribuição de experiência é assimétrica variando de 3 a 20+ anos e a média seria distorcida pelos outliers. Mediana = 13,5 anos.
 
 ### Query 3 — Custo de acidentes evitáveis
-Aqui foi realizada uma agregação somando o danos as veículos que poderiam ser evitados para cada categoria de acidente, em seguida realizamos uma outra consulta para somar o valor total dos danos(US$509.102,24)
+Aqui foi realizada uma agregação somando os danos aos veículos que poderiam ser evitados para cada categoria de acidente, em seguida realizamos uma sub query para somar o valor total dos custos(US$509.102,24)
 
 ### Query 4 — Acidentes com motoristas acima da mediana de experiência
-Dos 170 acidentes ocorridos no período de 24 meses(jan- 2022 a dez-2024),100 ocorreram com motoristas que tinham mais que 13,5 anos de experiência, totalizando 58,8%. Isso acaba sugerindo que experiência sozinha não é fator protetor.
+Dos 170 acidentes ocorridos no período de 24 meses(Jan-2022 a Dez-2024, período que o conjunto de dados observa),100 ocorreram com motoristas que tinham mais que 13,5 anos de experiência, totalizando 58,8%. Isso acaba sugerindo que experiência sozinha não é fator protetor.
 
 ### Query 5 — Frequência e custo total por tipo de acidente
-Objetivo: priorizar tipos de acidente com maior impacto financeiro.
+Os três tipos de acidentes que tiveram maior impacto financeiro(Severe incident involving weather,Moderate incident involving equipment e Moderate incident involving weather) somam junto um gasto de  US$534.383,07, superando o custo total gastos com os acidentes evitáveis. As suas frequências foram respectivamente 18,16 e 18
 
 ### Query 6 — Frequência e mediana de idade por tipo de acidente
 Objetivo: identificar se algum tipo está associado a faixas etárias

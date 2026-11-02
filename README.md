@@ -28,14 +28,13 @@ O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas qu
 Nesta query o objetivo era quantificar os tipos de acidentes e quantas vezes cada um tinha ocorrido. No total haviam 12 tipos de acidentes, destes os três com maior número de ocorrência foram: incidente moderado envolvendo o clima, incidente moderado envolvendo o trânsito e incidente grave envolvendo o clima. Os três somam 54 acidentes, eles são responsáveis por quase um terço(31,76%) do número total de acidentes 170.
 
 ### Query 2 — Mediana de experiência dos motoristas
-Justificativa: usei mediana em vez de média porque a distribuição de experiência é assimétrica (de 3 a 20+ anos) e a média seria distorcida por valores extremos. Mediana = 13,5 anos.
+Justificativa: usei a mediana em vez de média porque a distribuição de experiência é assimétrica variando de 3 a 20+ anos e a média seria distorcida pelos outliers. Mediana = 13,5 anos.
 
 ### Query 3 — Custo de acidentes evitáveis
-...
+Aqui foi realizada uma agregação somando o danos as veículos que poderiam ser evitados para cada categoria de acidente, em seguida realizamos uma outra consulta para somar o valor total dos danos(US$509.102,24)
 
 ### Query 4 — Acidentes com motoristas acima da mediana de experiência
-Resultado: X% dos acidentes envolveram motoristas com mais de 13,5 anos
-de experiência — sugerindo que experiência sozinha não é fator protetor.
+Dos 170 acidentes ocorridos no período de 24 meses(jan- 2022 a dez-2024),100 ocorreram com motoristas que tinham mais que 13,5 anos de experiência, totalizando 58,8%. Isso acaba sugerindo que experiência sozinha não é fator protetor.
 
 ### Query 5 — Frequência e custo total por tipo de acidente
 Objetivo: priorizar tipos de acidente com maior impacto financeiro.

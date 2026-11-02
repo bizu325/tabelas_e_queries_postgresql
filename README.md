@@ -17,10 +17,10 @@ WITH (FORMAT csv, HEADER true, DELIMITER ',');
 Para este projeto, utilizei as seguintes tabelas e colunas:
 | Tabela | Colunas utilizadas | Descrição |
 |---|---|---|
-| safety_incidents | description, vehicle_damage_cost, preventable_flag | Dados sobre os acidente|
+| safety_incidents | description, vehicle_damage_cost, preventable_flag | Dados sobre os acidentes|
 | drivers | driver_id, experience_years | Motoristas e tempo de experiência |
 
-O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas que não foram necessárias neste projeto.
+O Dataset contém mais tabelas e colunas(trucks,trailers,customers,etc) , mas que não foram contempladas neste projeto.
 
 ## Análises
 

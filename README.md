@@ -1,7 +1,7 @@
 # Análise de Operações Logísticas com PostgreSQL(17.5)
 
 ## Sobre o projeto
-Projeto de análise de dados de operações logísticas usando PostgreSQL: modelagem de tabelas, importação de CSV (Kaggle) e queries SQL para gerar insights. Projeto de portfólio.
+Projeto de análise de dados de operações logísticas usando PostgreSQL: modelagem de tabelas, importação de CSV (Kaggle) e queries SQL para gerar insights. Meu primeiro Projeto de portfólio.
 
 ## Fonte dos dados
 Dataset: **Logistics Operations Database** (Kaggle) — (https://www.kaggle.com/datasets/yogape/logistics-operations-database)  
@@ -32,15 +32,15 @@ Justificativa: usei a mediana em vez da média porque a distribuição de experi
 Aqui foi realizada uma agregação somando os danos aos veículos que poderiam ser evitados para cada categoria de acidente, em seguida realizamos uma subquery para somar o valor total dos custos(US$ 509.102,24)
 
 ### Query 4 — Acidentes com motoristas acima da mediana de experiência
-Dos 169 acidentes(um sem o id do motorista,não contado) ocorridos no período de 36 meses(Jan-2022 a Dez-2024, período que o conjunto de dados observa),97 ocorreram com motoristas que tinham 13,5 ou mais anos de experiência, totalizando 57,40%. Isso acaba sugerindo que experiência sozinha não é fator suficiente para evitar acidentes.
+Dos 169 acidentes(um sem o id do motorista,não contado) ocorridos no período de 36 meses(Jan-2022 a Dez-2024, período que o conjunto de dados observa),97 ocorreram com motoristas que tinham 13.5 ou mais anos de experiência, totalizando 57,40%. Isso acaba sugerindo que experiência sozinha não é fator suficiente para evitar acidentes.
 
 ### Query 5 — Frequência e custo total por tipo de acidente
 Os três tipos de acidentes que tiveram maior impacto financeiro(**Severe incident involving weather, Moderate incident involving equipment e Moderate incident involving weather**),dentre as 12 categorias somam juntos um gasto de  US$ 534.383,07, superando o custo total gastos com os acidentes evitáveis(lembrando que aqui contamos todos os tipos e não somente os evitáveis). As suas frequências foram respectivamente 18, 16 e 18 para cada tipo de acidente.
 
 ### Query 6 — Frequência e mediana de experiência por tipo de acidente
-Novamente, utilizei a mediana para que não ocorresse distorção pelos outliers. Como utilizei um Join para juntar os dados das tabelas drivers e safety_incidents, um dos acidentes não havia dados do motoristas, fazendo com que ele não fosse contado pelo Join na categoria **Severe incident involving weather**.  
+Novamente, utilizei a mediana para que não ocorresse distorção pelos outliers. Como utilizei um Join para juntar os dados das tabelas drivers e safety_incidents, um dos acidentes não havia dados do motoristas, fazendo com que ele não fosse computado pelo Join na categoria **Severe incident involving weather**.  
 A query agrupa os acidentes por tipo, conta a quantidade de ocorrências em cada e traz uma mediana da experiência dos motoristas dessa categoria. 
-Dos  12 tipos de acidentes, apenas quatro possuem mediana de experiência inferior a mediana geral(13,5),esses 4 tipos de acidentes foram responsáveis por 45 acidentes, totalizando 26,47% do total de acidentes.
+Dos  12 tipos de acidentes, apenas quatro possuem mediana de experiência inferior a mediana geral(13,5),esses 4 tipos  foram responsáveis por 45 acidentes, totalizando 26,47% do total de acidentes.
 | Tipo de acidente | Acidentes | Mediana |
 |----|----|----|
 | Minor incident involving traffic |	11 |	11 |
@@ -55,6 +55,7 @@ Os resultados foram exportados do psql com:
 \copy (SELECT ...) TO 'caminho/arquivo.csv' DELIMITER ',' CSV HEADER;
 
 ## Conclusão
-Com base nos achados desta análise, conseguimos deduzir que duas das principais causas de acidentes foram as condições climáticas e que profissionais menos experiêntes estão envolvidos em mais acidentes graves. O que nos permite supor que são necessárias estratégias para mitigar os danos com os eventos climáticos e que é preciso aumentar o treinamentos com os profissionais menos experientes
+Com base nos achados desta análise, conseguimos deduzir que duas das principais causas de acidentes foram as condições climáticas e que, nessa amostra, os acidentes de maior gravidade apresentam mediana inferior a mediana geral(10.5 vs 13.5). O que nos permite inferir que são necessárias estratégias para mitigar os danos decorrentes de eventos climáticos e que é preciso reforçar os treinamentos com os profissionais menos experientes.
+
 
  
